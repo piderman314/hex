@@ -23,6 +23,12 @@ var _ = Describe("HexGrid with cell in 1, 1, 1", func() {
 				Expect(grid.Get(1, 1, 1)).NotTo(BeNil())
 			})
 		})
+
+		Context("Retrieving from 2, 2, 2", func() {
+			It("should be nil", func() {
+				Expect(grid.Get(2, 2, 2)).To(BeNil())
+			})
+		})
 	})
 
 })
