@@ -17,14 +17,14 @@ var _ = Describe("HexGrid with cell in 1, 1, 1", func() {
 		grid.Put(&cell{}, 1, 1, 1)
 	})
 
-	Describe("Retrieving from the HexGrid", func() {
-		Context("Retrieving from 1, 1, 1", func() {
+	Describe("when retrieving from the HexGrid", func() {
+		Context("from location 1, 1, 1", func() {
 			It("should not be nil", func() {
 				Expect(grid.Get(1, 1, 1)).NotTo(BeNil())
 			})
 		})
 
-		Context("Retrieving from 2, 2, 2", func() {
+		Context("from location 2, 2, 2", func() {
 			It("should be nil", func() {
 				Expect(grid.Get(2, 2, 2)).To(BeNil())
 			})
