@@ -1,5 +1,10 @@
 package hex
 
+var neighbours = [][]int{
+	{+1, -1, 0}, {+1, 0, -1}, {0, +1, -1},
+	{-1, +1, 0}, {-1, 0, +1}, {0, -1, +1},
+}
+
 type HexCell struct {
 	index hexIndex
 }
