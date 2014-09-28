@@ -4,11 +4,6 @@ type HexCell struct {
 	index hexIndex
 }
 
-type hexCellable interface {
-	GetIndex() hexIndex
-	SetIndex(hexIndex)
-}
-
 func (cell *HexCell) GetIndex() hexIndex {
 	return cell.index
 }
@@ -17,8 +12,13 @@ func (cell *HexCell) SetIndex(index hexIndex) {
 	cell.index = index
 }
 
+type IndexableHex interface {
+	GetIndex() hexIndex
+	SetIndex(hexIndex)
+}
+
 type HexGrid struct {
-	grid map[hexIndex]hexCellable
+	grid map[hexIndex]IndexableHex
 }
 
 type hexIndex struct {
@@ -26,14 +26,14 @@ type hexIndex struct {
 }
 
 func NewGrid() HexGrid {
-	return HexGrid{grid: make(map[hexIndex]hexCellable)}
+	return HexGrid{grid: make(map[hexIndex]IndexableHex)}
 }
 
-func (grid *HexGrid) Put(cell hexCellable, x, y, z int) {
+func (grid *HexGrid) Put(cell IndexableHex, x, y, z int) {
 	cell.SetIndex(hexIndex{x, y, z})
 	(*grid).grid[cell.GetIndex()] = cell
 }
 
-func (grid *HexGrid) Get(x, y, z int) hexCellable {
+func (grid *HexGrid) Get(x, y, z int) IndexableHex {
 	return (*grid).grid[hexIndex{x, y, z}]
 }
