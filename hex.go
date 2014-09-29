@@ -9,12 +9,12 @@ type Hex struct {
 	index hexIndex
 }
 
-func (cell *Hex) GetIndex() hexIndex {
-	return cell.index
+func (hex *Hex) GetIndex() hexIndex {
+	return hex.index
 }
 
-func (cell *Hex) SetIndex(index hexIndex) {
-	cell.index = index
+func (hex *Hex) SetIndex(index hexIndex) {
+	hex.index = index
 }
 
 type IndexableHex interface {
