@@ -60,7 +60,3 @@ var _ = Describe("HexGrid Tests", func() {
 		})
 	})
 })
-
-type hex struct {
-	Hex
-}

@@ -1,6 +1,8 @@
 package hex_test
 
 import (
+	. "github.com/piderman314/hex"
+
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
@@ -10,4 +12,8 @@ import (
 func TestHex(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Hex Suite")
+}
+
+type hex struct {
+	Hex
 }
