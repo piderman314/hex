@@ -38,9 +38,26 @@ var _ = Describe("HexGrid", func() {
 			c := cell{}
 			grid = NewGrid()
 			grid.Put(&c, 1, 1, 1)
+			grid.Put(&cell{}, 3, 3, 3)
 
 			It("should be an empty slice", func() {
 				Expect(len(grid.GetAllNeighbours(&c))).To(Equal(0))
+			})
+		})
+
+		Context("all neighbours", func() {
+			c := cell{}
+			grid := NewGrid()
+			grid.Put(&c, 1, 1, 1)
+			grid.Put(&cell{}, 2, 0, 1)
+			grid.Put(&cell{}, 0, 2, 1)
+			grid.Put(&cell{}, 1, 2, 0)
+			grid.Put(&cell{}, 1, 0, 2)
+			grid.Put(&cell{}, 2, 1, 0)
+			grid.Put(&cell{}, 0, 1, 2)
+
+			It("should be a slice if size 6", func() {
+				Expect(len(grid.GetAllNeighbours(&c))).To(Equal(6))
 			})
 		})
 	})
