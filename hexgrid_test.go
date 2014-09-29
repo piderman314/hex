@@ -32,7 +32,7 @@ var _ = Describe("HexGrid Tests", func() {
 	})
 
 	Describe("HexGrid GetAllNeighbours", func() {
-		Context("no neighbours", func() {
+		Context("Getting from a location without neighbours", func() {
 			c := hex{}
 			grid = NewGrid()
 			grid.Put(&c, 1, 1, 1)
@@ -43,7 +43,7 @@ var _ = Describe("HexGrid Tests", func() {
 			})
 		})
 
-		Context("all neighbours", func() {
+		Context("Getting from a location with 6 neighbours", func() {
 			c := hex{}
 			grid := NewGrid()
 			grid.Put(&c, 1, 1, 1)
