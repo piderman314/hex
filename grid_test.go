@@ -9,7 +9,7 @@ import (
 
 var _ = Describe("HexGrid Tests", func() {
 	var (
-		grid HexGrid
+		grid Grid
 	)
 
 	Describe("HexGrid Get and Put", func() {

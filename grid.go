@@ -1,23 +1,23 @@
 package hex
 
-type HexGrid struct {
+type Grid struct {
 	grid map[hexIndex]IndexableHex
 }
 
-func NewGrid() HexGrid {
-	return HexGrid{grid: make(map[hexIndex]IndexableHex)}
+func NewGrid() Grid {
+	return Grid{grid: make(map[hexIndex]IndexableHex)}
 }
 
-func (grid *HexGrid) Put(hex IndexableHex, x, y, z int) {
+func (grid *Grid) Put(hex IndexableHex, x, y, z int) {
 	hex.SetIndex(hexIndex{x, y, z})
 	(*grid).grid[hex.GetIndex()] = hex
 }
 
-func (grid *HexGrid) Get(x, y, z int) IndexableHex {
+func (grid *Grid) Get(x, y, z int) IndexableHex {
 	return (*grid).grid[hexIndex{x, y, z}]
 }
 
-func (grid *HexGrid) GetAllNeighbours(hex IndexableHex) (out []IndexableHex) {
+func (grid *Grid) GetAllNeighbours(hex IndexableHex) (out []IndexableHex) {
 	index := hex.GetIndex()
 
 	for _, i := range neighbours {

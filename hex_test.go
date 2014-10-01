@@ -9,7 +9,7 @@ import (
 
 var _ = Describe("Hex Tests", func() {
 	var (
-		grid HexGrid
+		grid Grid
 		hex1 hex
 		hex2 hex
 		hex3 hex
@@ -40,5 +40,4 @@ var _ = Describe("Hex Tests", func() {
 			})
 		})
 	})
-
 })
