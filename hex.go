@@ -26,7 +26,8 @@ func (hex *Hex) Neighbours(other IndexableHex) bool {
 	diffY := float64(hex.index.y - other.GetIndex().y)
 	diffZ := float64(hex.index.z - other.GetIndex().z)
 
-	return math.Abs(diffX) <= 1 &&
+	return (diffX != 0 || diffY != 0 || diffZ != 0) &&
+		math.Abs(diffX) <= 1 &&
 		math.Abs(diffY) <= 1 &&
 		math.Abs(diffZ) <= 1
 }

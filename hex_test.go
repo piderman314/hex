@@ -35,6 +35,7 @@ var _ = Describe("Hex Tests", func() {
 
 		Context("Checking not neighbours", func() {
 			It("should be false", func() {
+				Expect(hex1.Neighbours(&hex1)).To(BeFalse())
 				Expect(hex1.Neighbours(&hex3)).To(BeFalse())
 				Expect(hex2.Neighbours(&hex3)).To(BeFalse())
 			})
