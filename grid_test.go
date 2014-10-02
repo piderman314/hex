@@ -29,6 +29,13 @@ var _ = Describe("Grid Tests", func() {
 				Expect(grid.GetByCoords(-1, -1, 2)).To(BeNil())
 			})
 		})
+
+		Context("When coordinates don't add up to 0", func() {
+			It("should produce an error", func() {
+				_, err := grid.Put(&hex{}, 1, 1, 1)
+				Expect(err.Error()).To(Equal("x, y and z don't add up to 0."))
+			})
+		})
 	})
 
 	Describe("Grid GetAllNeighbours", func() {
