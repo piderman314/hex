@@ -22,9 +22,9 @@ var _ = Describe("Hex Tests", func() {
 			hex2 = hex{}
 			hex3 = hex{}
 
-			grid.Put(&hex1, 1, 1, 1)
-			grid.Put(&hex2, 0, 2, 1)
-			grid.Put(&hex3, 2, 2, 2)
+			grid.Put(&hex1, 1, 1, -2)
+			grid.Put(&hex2, 0, 2, -2)
+			grid.Put(&hex3, 2, 2, -4)
 		})
 
 		Context("Checking actual neighbours", func() {

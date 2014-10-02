@@ -10,14 +10,14 @@ var neighbours = [][]int{
 }
 
 type Hex struct {
-	index hexIndex
+	index Index
 }
 
-func (hex *Hex) GetIndex() hexIndex {
+func (hex *Hex) GetIndex() Index {
 	return hex.index
 }
 
-func (hex *Hex) SetIndex(index hexIndex) {
+func (hex *Hex) SetIndex(index Index) {
 	hex.index = index
 }
 
@@ -28,15 +28,14 @@ func (hex *Hex) Neighbours(other IndexableHex) bool {
 
 	return math.Abs(diffX) <= 1 &&
 		math.Abs(diffY) <= 1 &&
-		math.Abs(diffZ) <= 1 &&
-		diffX+diffY+diffZ == 0
+		math.Abs(diffZ) <= 1
 }
 
 type IndexableHex interface {
-	GetIndex() hexIndex
-	SetIndex(hexIndex)
+	GetIndex() Index
+	SetIndex(Index)
 }
 
-type hexIndex struct {
+type Index struct {
 	x, y, z int
 }
