@@ -31,6 +31,19 @@ func (hex *Hex) Neighbours(other IndexableHex) bool {
 		math.Abs(diffZ) <= 1
 }
 
+func (hex *Hex) DiagonalNeighbours(other IndexableHex) bool {
+	diffX := float64(hex.index.x - other.GetIndex().x)
+	diffY := float64(hex.index.y - other.GetIndex().y)
+	diffZ := float64(hex.index.z - other.GetIndex().z)
+
+	return math.Abs(diffX) <= 2 &&
+		math.Abs(diffX) >= 1 &&
+		math.Abs(diffY) <= 2 &&
+		math.Abs(diffY) >= 1 &&
+		math.Abs(diffZ) <= 2 &&
+		math.Abs(diffZ) >= 1
+}
+
 type IndexableHex interface {
 	GetIndex() Index
 	SetIndex(Index)
